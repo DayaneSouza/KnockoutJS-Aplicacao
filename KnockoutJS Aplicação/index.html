@@ -1,0 +1,30 @@
+<html> 
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Projeto KNOCKOUT.JS </title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body>
+		<div class='lista'>	
+
+			<form data-bind="submit:addItem">
+			   <label> Adicionar Item: </label> <input type="text" data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+			    <button type="submit" data-bind="enable: itemToAdd().length > 0"> Adicionar </button>			    
+			</form>
+			 
+			<p>Valores da Lista:</p>
+			<select multiple="multiple" height="5" data-bind="options:allItems, selectedOptions:selectedItems"> </select>
+			 
+			<div>
+			    <button data-bind="click: removeSelected, enable: selectedItems().length > 0"> Deletar </button>
+			    <button data-bind="click: sortItems, enable: allItems().length > 1"> Ordenar </button>
+			</div>			
+
+		</div>
+
+		<script src="knockout/knockout.js"> </script>
+		<script src="js/main.js"> </script>
+	</body>
+<html>
